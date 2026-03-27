@@ -1,5 +1,6 @@
 import { Phone, Calendar, Droplets } from "lucide-react";
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.jpeg";
 
 const HeroSection = () => {
   return (
