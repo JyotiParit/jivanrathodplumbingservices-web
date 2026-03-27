@@ -1,11 +1,14 @@
 import { Phone, Instagram, MapPin } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const Footer = () => (
   <footer className="py-12 border-t border-border">
     <div className="container mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <p className="text-xl font-display font-bold text-gradient-copper">Jivan Rathod Plumbing Services</p>
+        <div className="flex items-center gap-3">
+          <img src={logo} alt="Logo" className="w-10 h-10 rounded-full object-cover border border-copper/30" />
+          <div>
+            <p className="text-xl font-display font-bold text-gradient-copper">Jivan Rathod Plumbing Services</p>
           <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
             <MapPin className="w-3 h-3" /> Serving Pune & nearby areas
           </p>
