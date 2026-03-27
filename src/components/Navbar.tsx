@@ -4,15 +4,31 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", id: "home" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Services", href: "#services", id: "services" },
+  { label: "Gallery", href: "#gallery", id: "gallery" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const scrollToSection = (id: string) => {
+    setOpen(false);
+
+    requestAnimationFrame(() => {
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      const navElement = document.querySelector("nav");
+      const offset = navElement instanceof HTMLElement ? navElement.offsetHeight + 12 : 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top, behavior: "smooth" });
+      window.history.replaceState(null, "", `#${id}`);
+    });
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -53,9 +69,14 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-4 p-6">
               {navLinks.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  key={l.href}
+                  type="button"
+                  onClick={() => scrollToSection(l.id)}
+                  className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                >
                   {l.label}
-                </a>
+                </button>
               ))}
               <a href="tel:+918830861783" className="inline-flex items-center justify-center gap-2 bg-primary px-4 py-3 rounded-lg font-medium text-primary-foreground">
                 <Phone className="w-4 h-4" /> Call Now
