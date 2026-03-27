@@ -9,8 +9,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-copper/5 blur-3xl" />
-        <Droplets className="absolute top-32 right-[20%] w-8 h-8 text-primary/20 animate-float" />
-        <Droplets className="absolute bottom-40 left-[15%] w-6 h-6 text-copper/20 animate-float" style={{ animationDelay: "1s" }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
