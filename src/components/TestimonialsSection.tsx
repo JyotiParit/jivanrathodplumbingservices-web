@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
+  { name: "Dipak Rathod", area: "Pune", text: "He is very experienced plumber. His work & behavior is very nice ❤️ He is the gentleman with brain & his work ability. His work is really nice & he is genius on plumbing work." },
+  { name: "Kartik", area: "Pune", text: "Did excellent work. My pipe was getting leaked in Kitchen. He fixed it in minutes and with great cost. Other plumbers were quoting too high, but Jivan did it in good budget." },
+  { name: "Abhi Rao", area: "Pune", text: "Good for working any plumbing work. He is very experienced person." },
   { name: "Rahul Deshmukh", area: "Warje", text: "Excellent plumbing work! Fixed our leaking pipes within an hour. Very professional." },
   { name: "Priya Kulkarni", area: "Kothrud", text: "Installed new bathroom fixtures perfectly. Clean work and fair pricing. Highly recommend!" },
   { name: "Amit Patil", area: "Bavdhan", text: "Called for emergency drain cleaning. Arrived fast and resolved the issue quickly. Great service!" },
