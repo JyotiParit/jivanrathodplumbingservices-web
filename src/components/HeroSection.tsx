@@ -1,5 +1,6 @@
 import { Phone, Calendar, Droplets } from "lucide-react";
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.jpeg";
 
 const HeroSection = () => {
   return (
@@ -15,9 +16,18 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="mb-6"
+          >
+            <img src={logo} alt="Jivan Rathod Plumbing Services" className="w-28 h-28 rounded-full object-cover mx-auto border-2 border-copper/40 shadow-lg shadow-primary/20" />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-copper/30 text-copper text-sm font-medium mb-6">
               Trusted Plumbing Experts in Pune
