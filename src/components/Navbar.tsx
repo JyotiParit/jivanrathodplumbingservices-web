@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.jpeg";
@@ -13,25 +13,34 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [pendingSectionId, setPendingSectionId] = useState<string | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
 
   const scrollToSection = (id: string) => {
+    setPendingSectionId(id);
     setOpen(false);
-
-    requestAnimationFrame(() => {
-      const target = document.getElementById(id);
-      if (!target) return;
-
-      const navElement = document.querySelector("nav");
-      const offset = navElement instanceof HTMLElement ? navElement.offsetHeight + 12 : 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-
-      window.scrollTo({ top, behavior: "smooth" });
-      window.history.replaceState(null, "", `#${id}`);
-    });
   };
 
+  useEffect(() => {
+    if (!pendingSectionId || open) return;
+
+    const timeout = window.setTimeout(() => {
+      const target = document.getElementById(pendingSectionId);
+      if (!target) return;
+
+      const offset = (navRef.current?.offsetHeight ?? 80) + 8;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      window.history.replaceState(null, "", `#${pendingSectionId}`);
+      setPendingSectionId(null);
+    }, 260);
+
+    return () => window.clearTimeout(timeout);
+  }, [open, pendingSectionId]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="Jivan Rathod Plumbing Services Logo" className="w-10 h-10 rounded-full object-cover border border-copper/30" />
@@ -54,7 +63,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button type="button" className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
