@@ -9,9 +9,10 @@ const Footer = () => (
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full object-cover border border-copper/30" />
           <div>
             <p className="text-xl font-display font-bold text-gradient-copper">Jivan Rathod Plumbing Services</p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-            <MapPin className="w-3 h-3" /> Serving Pune & nearby areas
-          </p>
+            <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+              <MapPin className="w-3 h-3" /> Serving Pune & nearby areas
+            </p>
+          </div>
         </div>
         <div className="flex items-center gap-6">
           <a href="tel:+918830861783" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">

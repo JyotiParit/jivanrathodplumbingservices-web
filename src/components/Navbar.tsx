@@ -17,9 +17,12 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#home" className="flex items-center gap-2">
-          <span className="text-xl font-display font-bold text-gradient-copper">Jivan Rathod</span>
-          <span className="hidden sm:inline text-sm text-muted-foreground">Plumbing Services</span>
+        <a href="#home" className="flex items-center gap-3">
+          <img src={logo} alt="Jivan Rathod Plumbing Services Logo" className="w-10 h-10 rounded-full object-cover border border-copper/30" />
+          <div className="flex flex-col">
+            <span className="text-lg font-display font-bold text-gradient-copper leading-tight">Jivan Rathod</span>
+            <span className="hidden sm:block text-xs text-muted-foreground leading-tight">Plumbing Services</span>
+          </div>
         </a>
 
         {/* Desktop */}
