@@ -4,7 +4,7 @@ import logo from "@/assets/logo.jpeg";
 const Footer = () => (
   <footer className="py-12 border-t border-border">
     <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex items-center gap-3">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full object-cover border border-copper/30" />
           <div>
@@ -14,7 +14,18 @@ const Footer = () => (
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-6">
+
+        <div className="flex flex-col gap-2">
+          <p className="text-sm font-semibold text-foreground mb-1">Quick Links</p>
+          {["Home", "About", "Services", "Gallery", "Contact"].map((label) => (
+            <a key={label} href={`#${label.toLowerCase()}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {label}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-semibold text-foreground mb-1">Contact Us</p>
           <a href="tel:+918830861783" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <Phone className="w-4 h-4" /> +91 8830861783
           </a>
