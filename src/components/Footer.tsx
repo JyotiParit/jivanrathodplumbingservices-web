@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="py-12 border-t border-border">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="flex items-center gap-3">
+        <div className="flex items-start gap-3">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full object-cover border border-copper/30" />
           <div>
             <p className="text-xl font-display font-bold text-gradient-copper">Jivan Rathod Plumbing Services</p>
